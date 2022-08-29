@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="page_files/head.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <meta name="description" content="Boundary-Aware Network for Medical Image Segmentation">
+    <meta name="keywords" content="Boundary-Aware,Medical Image Segmentation">
+
+    <title>BA-Net</title>
+    <link rel="stylesheet" href="page_files/font.css">
+    <link rel="stylesheet" href="page_files/main.css">
+
+
+    <style type="text/css">
+        .layered-paper-big {
+            /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+            box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.35), /* The top layer shadow */
+            5px 5px 0 0px #fff, /* The second layer */
+            5px 5px 1px 1px rgba(0, 0, 0, 0.35), /* The second layer shadow */
+            10px 10px 0 0px #fff, /* The third layer */
+            10px 10px 1px 1px rgba(0, 0, 0, 0.35), /* The third layer shadow */
+            15px 15px 0 0px #fff, /* The fourth layer */
+            15px 15px 1px 1px rgba(0, 0, 0, 0.35), /* The fourth layer shadow */
+            20px 20px 0 0px #fff, /* The fifth layer */
+            20px 20px 1px 1px rgba(0, 0, 0, 0.35), /* The fifth layer shadow */
+            25px 25px 0 0px #fff, /* The fifth layer */
+            25px 25px 1px 1px rgba(0, 0, 0, 0.35);
+            /* The fifth layer shadow */
+            margin-left: 10px;
+            margin-right: 45px;
+        }
+    </style>
+
+</head>
+
+<body data-gr-c-s-loaded="true" data-new-gr-c-s-check-loaded="14.1028.0" data-gr-ext-installed="">
+
+    <div class="outercontainer">
+        <div class="container">
+
+    <div class="content project_title">
+        <h1>Boundary-Aware Network for Medical Image Segmentation</h1>
+    </div>
+
+    <div class="content project_headline">
+        <center>
+            <h2>
+            <table align="center" width="800px">
+                <tbody>
+                    <tr>
+                        <td align="center" width="100px">
+                            <center>
+                                <span style="font-size:20px"><a href="https://shishuaihu.github.io/">
+                                Shishuai Hu</a></span><br><span style="font-size:15px">Northwestern Polytechnical University</span>
+                            </center>
+                        </td>
+                        <td align="center" width="100px">
+                            <center>
+                                <span style="font-size:20px">
+                                Zehui Liao</a></span><br><span style="font-size:15px">Northwestern Polytechnical University</span>
+                            </center>
+                        </td>
+                        <td align="center" width="100px">
+                            <center>
+                                <span style="font-size:20px"><a href="https://jianpengz.github.io/">
+                                Jiangpeng Zhang</a></span><br><span style="font-size:15px">Northwestern Polytechnical University</span>
+                            </center>
+                        </td>
+                        <td align="center" width="100px">
+                            <center>
+                                <span style="font-size:20px"><a href="https://teacher.nwpu.edu.cn/yongxia">
+                                Yong Xia</a></span><br><span style="font-size:15px">Northwestern Polytechnical University</span>
+                            </center>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </h2>
+        </center>
+    </div>
+
+    <div class="content project_headline">
+        <center>
+            <h2>
+                <table align="center" width="800px">
+                <tbody>
+                    <tr>
+                        <td align="center" width="150px">
+                            <center>
+                                <span style="font-size:18px"></span>
+                            </center>
+                        </td>
+                        <td align="center" width="200px">
+                            <center>
+                                <span style="font-size:18px">Code <a href="https://github.com/ShishuaiHu/BA-Net"> [GitHub]</a></span>
+                            </center>
+                        </td>
+<!--                        <td align="center" width="200px">-->
+<!--                            <center>-->
+<!--                                <span style="font-size:18px">arXiv<a href="https://arxiv.org/abs/2109.05676"> [Paper]</a></span>-->
+<!--                            </center>-->
+<!--                        </td>-->
+                        <!-- <td align="center" width="200px">
+                            <center>
+                                <span style="font-size:18px">Poster<a href="https://yassouali.github.io/cct_page/files/poster.pdf"> [pdf]</a></span>
+                            </center>
+                        </td>
+                        <td align="center" width="200px">
+                            <center>
+                                <span style="font-size:18px">Slides<a href="https://yassouali.github.io/cct_page/files/slides.pdf"> [pdf]</a></span>
+                            </center>
+                        </td> -->
+                        <td align="center" width="150px">
+                            <center>
+                                <span style="font-size:18px"></span>
+                            </center>
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+            </h2>
+        </center>
+    </div>
+
+    		<br> <br>
+            <div class="content project_headline">
+                <div class="img" style="text-align:center; max-width: 80%;">
+                    <img class="img_responsive" src="page_files/overview.png" alt="Overview">
+                </div>
+                <div class="text">
+                    <p>Figure 1: Example of Boundary-Aware Network for Medical Image Segmentation.</p>
+                </div>
+            </div>
+            <br>
+
+            <div class="content">
+                <div class="text">
+                    <h2>Abstract</h2>
+                    <p>
+Although numerous deep learning models have achieved remarkable success in many medical image segmentation tasks, accurate segmentation of organs or tumors remains challenging, due to the varying sizes of organs and tumors and the ambiguous boundaries among them.
+In this paper, we propose a boundary-aware network (BA-Net) for medical image segmentation.
+This model contains a shared encoder, a boundary decoder, and a segmentation decoder.
+The multi-scale deep supervision strategy is adopted on both decoders, which can alleviate the issues caused by variable target sizes.
+The boundary probability maps produced by the boundary decoder at each scale are used as attention to enhance the segmentation feature maps.
+We evaluated the BA-Net on the Abdominal Multi-Organ Segmentation (AMOS) Challenge dataset and achieved an average Dice score of 89.29$\%$ for multi-organ segmentation on CT scans and an average Dice score of 71.92$\%$ on MRI scans.
+Also, we evaluated the BA-Net on the Kidney PArsing (KiPA) Challenge dataset and achieved an average Dice score of
+89.65$\%$ for kidney structure segmentation on CTA scans using 4-fold cross-validation.
+The results demonstrate the effectiveness of the BA-Net.
+                    </p>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="text">
+                    <h2>Highlights</h2>
+                    <div class="text">
+                        <p><b> (1) Combination of region segmentation and boundary detection.</b> <br>
+We combine the continuity-based region segmentation with discontinuity-based boundary detection and use the detected
+                            boundary information as that spatial attention to assist the segmentation decoder at multiple scales.</p>
+                    </div>
+
+                    <div class="text">
+                        <p><b> (2) Consistent constraint. </b> <br>
+We introduce a consistency loss to ensure that the outputs of the segmentation and boundary decoders are consistent.</p>
+                    </div>
+
+                    <div class="text">
+                        <p><b> (3) Competitive results.</b> <br>
+We present extensive experiments, which demonstrate
+the effectiveness of our BA-Net model against the state-of-the-art in medical image segmentation benchmarks.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="text" style="width: 80%;">
+                    <h2>Publication</h2>
+                    <ul>
+                        <li>
+                            <div class="title"><a name="BA-Netv1">Boundary-aware Network for Kidney Tumor Segmentation</a></div>
+                            <div class="authors">
+                                <a href="https://shishuaihu.github.io/">Shishuai Hu</a>,
+                                <a href="https://jianpengz.github.io/">Jianpeng Zhang</a>,
+                                <a href="https://teacher.nwpu.edu.cn/yongxia">Yong Xia</a>
+                            </div>
+                            <div>
+                                <span class="tag"><a href="http://dx.doi.org/10.1007%2F978-3-030-59861-7_20">Paper</a></span>
+                                <span class="tag"><a href="https://github.com/ShishuaiHu/BA-Net">Code</a></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="title"><a name="BA-Net-KiPA22">Boundary-Aware Network for Kidney Parsing</a></div>
+                            <div class="authors">
+                                <a href="https://shishuaihu.github.io/">Shishuai Hu</a>,
+                                Yiwen Ye,
+                                Zehui Liao,
+                                <a href="https://teacher.nwpu.edu.cn/yongxia">Yong Xia</a>
+                            </div>
+                            <div>
+                                <span class="tag"><a href="https://shishuaihu.github.io/files/202208_BA-Net_for_KiPA.pdf">Paper</a></span>
+                                <span class="tag"><a href="https://github.com/ShishuaiHu/BA-Net/tree/kipa22">Code</a></span>
+                                <span class="tag"><a href="https://zenodo.org/record/7030423">Pretrained Model</a></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="title"><a name="BA-Net-AMOS22">Boundary-Aware Network for Abdominal Multi-Organ Segmentation</a></div>
+                            <div class="authors">
+                                <a href="https://shishuaihu.github.io/">Shishuai Hu</a>,
+                                Zehui Liao,
+                                <a href="https://teacher.nwpu.edu.cn/yongxia">Yong Xia</a>
+                            </div>
+                            <div>
+                                <span class="tag"><a href="https://shishuaihu.github.io/files/202208_BA-Net_for_AMOS.pdf">Paper</a></span>
+                                <span class="tag"><a href="https://github.com/ShishuaiHu/BA-Net/tree/amos22">Code</a></span>
+                                <span class="tag"><a href="https://zenodo.org/record/7030453">Pretrained Model</a></span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- <div class="content">
+                <div class="text">
+                    <h3>Acknowledgments</h3>
+                    <p>
+                    </p>
+                </div>
+            </div> -->
+
+
+            <div class="content">
+                <div class="text">
+                    <h2>Related Publications</h2>
+                    <ul>
+                        <li>
+                            <p>
+                            <a href="https://www.nature.com/articles/s41592-020-01008-z">nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation.</a>
+                            Fabian Isensee, Paul F. Jaeger, Simon A. A. Kohl, Jens Petersen, Klaus H. Maier-Hein. <i>Nature Methods 2020 2020</i>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            <a href="https://link.springer.com/chapter/10.1007/978-3-030-32245-8_13">HD-Net: Hybrid Discriminative Network for Prostate Segmentation in MR Images.</a>
+                            Haozhe Jia, Yang Song, Heng Huang, Weidong Cai, Yong Xia. <i>MICCAI 2019</i>
+                            </p>
+                        </li>
+
+                      </ul>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="text">
+                    <h2>Citation</h2>
+                    If this work is helpful for your research, please consider citing:
+                    <pre>
+                    <code>
+{
+  @inproceedings{hu2020boundary,
+  title={Boundary-aware network for kidney tumor segmentation},
+  author={Hu, Shishuai and Zhang, Jianpeng and Xia, Yong},
+  booktitle={International Workshop on Machine Learning in Medical Imaging},
+  pages={189--198},
+  year={2020},
+  organization={Springer}
+}
+                    </code>
+                    </pre>
+                </div>
+            </div>
+
+
+            <div class="content">
+                <div class="text">
+                    <b>Acknowledgement:</b> This page is based on <a href="https://hobbitlong.github.io/CMC/">this template</a>
+                    by <a href="http://people.csail.mit.edu/yonglong/"> Yonglong Tian </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+<div id="footer" align="center">
+	<div id="footer-text"></div>
+    <div id="clustrmaps-widget" style="width:30%">
+		<script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=a3BzbzJbzoNt-RDPueJgP5s86N6akFSSOHpoc_JGrrc&cl=ffffff&w=a"></script>
+	</div>
+</div>
+
+</body>
+</html>
