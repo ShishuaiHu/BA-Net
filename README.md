@@ -106,7 +106,7 @@ nnUNet_ensemble -f $OUTPUT_FOLDER1 $OUTPUT_FOLDER2 -o $OUTPUT_FOLDER
 
 ## Pretrained Weights
 
-Can be downloaded from [here]().
+Can be downloaded from [here](https://zenodo.org/record/7030453).
 
 ### Citation ✏️ 📄
 
