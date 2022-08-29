@@ -12,10 +12,13 @@ git checkout amos22
 2. Create experimental environment using virtual env:
 
 ```bash
-cd nnUNet
 virtualenv .env --python=3.8 # create
 source .env/bin/activate # activate
-bash ./install.sh # install torch and nnUNet (equipped with BA-Net)
+
+cd nnUNet
+pip install torch==1.8.0+cu101 torchvision==0.9.0+cu101 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
+pip install -e .  # install torch and nnUNet (equipped with BA-Net)
+pip install hiddenlayer graphviz IPython
 ```
 
 3. Configure the paths in `.envrc` to the proper path:
