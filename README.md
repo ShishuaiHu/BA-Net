@@ -13,6 +13,10 @@
 
 Top-5 on both tasks of [AMOS 2022](https://amos22.grand-challenge.org/final-ranking/). 
 
+### More...
+
+If you are using our BA-Net on other public datasets/challenges, you can contact us at `sshu@mail.nwpu.edu.cn` to add your results on this page.
+
 ## Citation ✏️ 📄
 
 If you find this repo useful for your research, please consider citing the paper as follows:
