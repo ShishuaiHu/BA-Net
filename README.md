@@ -94,7 +94,14 @@ nnUNet_predict -i $TEST_DATA_FOLDER -o $OUTPUT_FOLDER2 -t 1001 -m 3d_fullres -tr
 nnUNet_ensemble -f $OUTPUT_FOLDER1 $OUTPUT_FOLDER2 -o $OUTPUT_FOLDER
 
 ## MR image
+### BA-Net-U
 nnUNet_predict -i $TEST_DATA_FOLDER -o $OUTPUT_FOLDER1 -t 1003 -m 3d_lowres -tr BANetV2Trainer --save_npz
+
+### nnUNet-M
+nnUNet_predict -i $TEST_DATA_FOLDER -o $OUTPUT_FOLDER2 -t 1002 -m 3d_lowres -tr BANetV2Trainer --save_npz
+
+### Ensemble
+nnUNet_ensemble -f $OUTPUT_FOLDER1 $OUTPUT_FOLDER2 -o $OUTPUT_FOLDER
 ```
 
 ## Pretrained Weights
