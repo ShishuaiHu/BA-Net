@@ -2,7 +2,7 @@
 :page_facing_up: Boundary-Aware Network for Medical Image Segmentation
 
 ## Overview
-
+<p align="center"><img src="https://github.com/ShishuaiHu/BA-Net/blob/master/page_files/overview.png" width="90%"></p>
 
 ## Performance
 ### Performance on Kidney Parsing (see [kipa22](https://github.com/ShishuaiHu/BA-Net/tree/kipa22) branch)
