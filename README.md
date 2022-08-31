@@ -124,6 +124,14 @@ If you find this repo useful for your research, please consider citing the paper
   year={2020},
   organization={Springer}
 }
+@misc{https://doi.org/10.48550/arxiv.2208.13774,
+  doi = {10.48550/ARXIV.2208.13774},
+  url = {https://arxiv.org/abs/2208.13774},
+  author = {Hu, Shishuai and Liao, Zehui and Xia, Yong},
+  title = {Boundary-Aware Network for Abdominal Multi-Organ Segmentation},
+  publisher = {arXiv},
+  year = {2022},
+}
 ```
 
 ### Acknowledgements
