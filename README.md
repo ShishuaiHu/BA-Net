@@ -30,13 +30,13 @@ If you find this repo useful for your research, please consider citing the paper
   year={2020},
   organization={Springer}
 }
-@misc{https://doi.org/10.48550/arxiv.2208.13338,
-  doi = {10.48550/ARXIV.2208.13338},
-  url = {https://arxiv.org/abs/2208.13338},
-  author = {Hu, Shishuai and Ye, Yiwen and Liao, Zehui and Xia, Yong},
-  title = {Boundary-Aware Network for Kidney Parsing},
-  publisher = {arXiv},
-  year = {2022},
+@incollection{hu2023boundary,
+  title={Boundary-Aware Network for Kidney Parsing},
+  author={Hu, Shishuai and Liao, Zehui and Ye, Yiwen and Xia, Yong},
+  booktitle={Lesion Segmentation in Surgical and Diagnostic Applications: MICCAI 2022 Challenges, CuRIOUS 2022, KiPA 2022 and MELA 2022, Held in Conjunction with MICCAI 2022, Singapore, September 18--22, 2022, Proceedings},
+  pages={9--17},
+  year={2023},
+  publisher={Springer}
 }
 @misc{https://doi.org/10.48550/arxiv.2208.13774,
   doi = {10.48550/ARXIV.2208.13774},
